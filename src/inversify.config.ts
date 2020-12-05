@@ -12,7 +12,7 @@ import { TYPES } from "./types";
 
 const container = new Container();
 
-container.bind<IObservable>(TYPES.WeatherData).to(WeatherData);
+container.bind<IObservable>(TYPES.WeatherData).to(WeatherData).inSingletonScope();
 
 container.bind<IObserver>(TYPES.Statistics).to(Statistics);
 container.bind<IObserver>(TYPES.Forecast).to(Forecast);

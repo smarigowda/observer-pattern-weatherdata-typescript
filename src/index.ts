@@ -1,4 +1,3 @@
-import { Container } from "inversify";
 import { IObservable } from "./interfaces/observable";
 import { IObserver } from "./interfaces/observer";
 
@@ -12,11 +11,6 @@ const weatherData = container.get<IObservable>(TYPES.WeatherData);
 const stats = container.get<IObserver>(TYPES.Statistics);
 const forecast = container.get<IObserver>(TYPES.Forecast);
 const currentConditions = container.get<IObserver>(TYPES.CurrentConditions);
-
-// Displays getting themselves registered to get notifications
-weatherData.register(stats);
-weatherData.register(forecast);
-weatherData.register(currentConditions);
 
 // this will be called by the library in real project
 weatherData.notifyObservers();
