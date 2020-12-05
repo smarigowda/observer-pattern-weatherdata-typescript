@@ -1,3 +1,3 @@
 export interface IObserver {
-  update();
+  update(temperature: string, pressure: string, humidity: string);
 }
