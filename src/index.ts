@@ -11,6 +11,7 @@ const weatherData = container.get<IObservable>(TYPES.WeatherData);
 const stats = container.get<IObserver>(TYPES.Statistics);
 const forecast = container.get<IObserver>(TYPES.Forecast);
 const currentConditions = container.get<IObserver>(TYPES.CurrentConditions);
+const windSpeed = container.get<IObserver>(TYPES.WindSpeed);
 
 // this will be called by the library in real project
 weatherData.notifyObservers();
@@ -23,3 +24,4 @@ weatherData.notifyObservers();
 
 weatherData.remove(currentConditions);
 weatherData.remove(forecast);
+weatherData.remove(windSpeed);

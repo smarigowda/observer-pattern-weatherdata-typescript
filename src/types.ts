@@ -3,4 +3,5 @@ export const TYPES = {
   Statistics: Symbol("Statistics"),
   Forecast: Symbol("Forecast"),
   CurrentConditions: Symbol("CurrentConditions"),
+  WindSpeed: Symbol("WindSpeed"),
 };
