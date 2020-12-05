@@ -5,12 +5,14 @@ import { TYPES } from "../../types";
 
 @injectable()
 export class CurrentConditions implements IObserver {
+  wd: IObservable;
   constructor(@inject(TYPES.WeatherData) weatherData: IObservable) {
     weatherData.register(this);
+    this.wd = weatherData;
   }
-  update(temperature: string, pressure: string, humidity: string): void {
+  update(): void {
     console.log(
-      `[CurrentConditions] received update from Weather Data: ${temperature}, ${pressure} and ${humidity}`
+      `[CurrentConditions] received update from Weather Data: ${this.wd.getTemperature()}, ${this.wd.getPressure()} and ${this.wd.getHumidity()}`
     );
   }
 }

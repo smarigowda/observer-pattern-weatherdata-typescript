@@ -6,19 +6,23 @@ import { IObserver } from "../../interfaces/observer";
 export class WeatherData implements IObservable {
   private list = [];
 
-  private getTemperature(): string {
+  public getTemperature(): string {
     // gets the temperature from sensors
     return "20C";
   }
 
-  private getHumidity(): string {
+  public getHumidity(): string {
     // gets the humidity from sensors
     return "84%";
   }
 
-  private getPressure(): string {
+  public getPressure(): string {
     // gets the pressure from sensors
     return "1046hPa";
+  }
+
+  public getWindSpeed(): string {
+    return "10mph";
   }
 
   public register(o: IObserver): void {
@@ -37,12 +41,9 @@ export class WeatherData implements IObservable {
     console.log(
       "[WeatherData] New weather data received...notifying observers now."
     );
-    const temperature = this.getTemperature();
-    const pressure = this.getPressure();
-    const humidity = this.getHumidity();
 
     this.list.forEach((obs) => {
-      obs.update(temperature, pressure, humidity);
+      obs.update();
     });
   }
 }
